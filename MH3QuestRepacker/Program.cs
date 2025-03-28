@@ -84,7 +84,8 @@ namespace MH3QuestRepacker
                 byte[] bytes = enc.GetBytes(line);
                 writer.Write(bytes.Length);
                 writer.Write(bytes);
-                binaryReader.ReadBytes(4 + bytes.Length);
+                int length = (int)binaryReader.ReadUInt32();
+                binaryReader.ReadBytes(length);
 
                 bytesRead = binaryReader.ReadBytes(2);
                 writer.Write(bytesRead);
@@ -94,7 +95,8 @@ namespace MH3QuestRepacker
                 bytes = enc.GetBytes(line);
                 writer.Write(bytes.Length);
                 writer.Write(bytes);
-                binaryReader.ReadBytes(4 + bytes.Length);
+                length = (int)binaryReader.ReadUInt32();
+                binaryReader.ReadBytes(length);
 
                 bytesRead = binaryReader.ReadBytes(9);
                 writer.Write(bytesRead);
@@ -104,7 +106,8 @@ namespace MH3QuestRepacker
                 bytes = enc.GetBytes(line);
                 writer.Write(bytes.Length);
                 writer.Write(bytes);
-                binaryReader.ReadBytes(4 + bytes.Length);
+                length = (int)binaryReader.ReadUInt32();
+                binaryReader.ReadBytes(length);
 
                 bytesRead = binaryReader.ReadBytes(6);
                 writer.Write(bytesRead);
@@ -114,14 +117,16 @@ namespace MH3QuestRepacker
                 bytes = enc.GetBytes(line);
                 writer.Write(bytes.Length);
                 writer.Write(bytes);
-                binaryReader.ReadBytes(4 + bytes.Length);
+                length = (int)binaryReader.ReadUInt32();
+                binaryReader.ReadBytes(length);
 
                 line = reader.ReadLine();
                 line = line.Replace("<LINE>", "\n");
                 bytes = enc.GetBytes(line);
                 writer.Write(bytes.Length);
                 writer.Write(bytes);
-                binaryReader.ReadBytes(4 + bytes.Length);
+                length = (int)binaryReader.ReadUInt32();
+                binaryReader.ReadBytes(length);
 
                 var stream = binaryReader.BaseStream;
                 int currentPos = (int)stream.Position;
@@ -177,7 +182,8 @@ namespace MH3QuestRepacker
                     byte[] bytes = Encoding.UTF8.GetBytes(line);
                     writer.Write(bytes.Length);
                     writer.Write(bytes);
-                    binaryReader.ReadBytes(4 + bytes.Length);
+                    int length = (int)binaryReader.ReadUInt32();
+                    binaryReader.ReadBytes(length);
                 }
 
                 bytesRead = binaryReader.ReadBytes(2);
@@ -190,7 +196,8 @@ namespace MH3QuestRepacker
                     byte[] bytes = Encoding.UTF8.GetBytes(line);
                     writer.Write(bytes.Length);
                     writer.Write(bytes);
-                    binaryReader.ReadBytes(4 + bytes.Length);
+                    int length = (int)binaryReader.ReadUInt32();
+                    binaryReader.ReadBytes(length);
                 }
 
                 bytesRead = binaryReader.ReadBytes(24);
@@ -203,7 +210,8 @@ namespace MH3QuestRepacker
                     byte[] bytes = Encoding.UTF8.GetBytes(line);
                     writer.Write(bytes.Length);
                     writer.Write(bytes);
-                    binaryReader.ReadBytes(4 + bytes.Length);
+                    int length = (int)binaryReader.ReadUInt32();
+                    binaryReader.ReadBytes(length);
                 }
 
                 bytesRead = binaryReader.ReadBytes(6);
@@ -216,7 +224,8 @@ namespace MH3QuestRepacker
                     byte[] bytes = Encoding.UTF8.GetBytes(line);
                     writer.Write(bytes.Length);
                     writer.Write(bytes);
-                    binaryReader.ReadBytes(4 + bytes.Length);
+                    int length = (int)binaryReader.ReadUInt32();
+                    binaryReader.ReadBytes(length);
                 }
 
                 for (Int32 i = 0; i < 5; i++)
@@ -226,7 +235,8 @@ namespace MH3QuestRepacker
                     byte[] bytes = Encoding.UTF8.GetBytes(line);
                     writer.Write(bytes.Length);
                     writer.Write(bytes);
-                    binaryReader.ReadBytes(4 + bytes.Length);
+                    int length = (int)binaryReader.ReadUInt32();
+                    binaryReader.ReadBytes(length);
                 }
 
                 var stream = binaryReader.BaseStream;
