@@ -8,6 +8,7 @@ namespace MH3QuestRepacker
     {
         static void Main(string[] args)
         {
+            string readinput = "Empty91564";
             //string input = args[0];
             foreach (var arg in args)
             {
@@ -23,8 +24,12 @@ namespace MH3QuestRepacker
                 }
                 else
                 {
-                    Console.WriteLine("Type 1 for JP files, type 2 for anything else");
-                    string readinput = Console.ReadLine();
+                    if (readinput.Equals("Empty91564"))
+                    {
+                        Console.WriteLine("Type 1 for JP files, type 2 for anything else");
+                        readinput = Console.ReadLine();
+                    }
+                    
                     if(readinput.Equals("1"))
                     {
                         QuestInput(input);
