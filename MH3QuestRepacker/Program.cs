@@ -15,12 +15,19 @@ namespace MH3QuestRepacker
                 string input = arg;
                 if (Path.GetExtension(input) == ".txt")
                 {
+                    if (readinput.Equals("Empty91564"))
+                    {
+                        Console.WriteLine("Type 1 for JP files, type 2 for anything else");
+                        readinput = Console.ReadLine();
+                    }
 
-                    TxtInput(input);
-                }
-                else if (Path.GetExtension(input) == ".ustxt")
-                {
-                    USTxtInput(input);
+                    if (readinput.Equals("1"))
+                    {
+                        TxtInput(input);
+                    } else
+                    {
+                        USTxtInput(input);
+                    }
                 }
                 else
                 {
@@ -340,7 +347,7 @@ namespace MH3QuestRepacker
 
         static void USQuestInput(string input)
         {
-            string output = Path.GetDirectoryName(input) + "\\" + Path.GetFileNameWithoutExtension(input) + ".ustxt";
+            string output = Path.GetDirectoryName(input) + "\\" + Path.GetFileNameWithoutExtension(input) + ".txt";
             BinaryReader reader = new BinaryReader(File.OpenRead(input));
 
             if (File.Exists(output))
